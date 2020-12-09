@@ -57,7 +57,9 @@ class DriversController extends Controller
         //$driver->photo = $request->photo;
 
         $driver->save();
-        return redirect()->route('drivers.index');
+        return redirect()
+            ->route('drivers.index')
+            ->withSuccessMessage('Driver added successfully!');
     }
 
     /**
@@ -112,7 +114,9 @@ class DriversController extends Controller
         //$driver->photo = $request->photo;
 
         $driver->save();
-        return redirect()->route('drivers.index');
+        return redirect()
+            ->route('drivers.index')
+            ->withSuccessMessage('Driver updated successfully!');
     }
 
     /**
@@ -125,6 +129,8 @@ class DriversController extends Controller
     {
         $driver = Driver::find($id);
         $driver->delete();
-        return redirect()->route('drivers.index');
+        return redirect()
+            ->route('drivers.index')
+            ->withSuccessMessage('Driver deleted successfully!');
     }
 }

@@ -96,7 +96,7 @@
                     <option value=""> -- SELECT ROUTE -- </option>
                     @foreach ($routes as $route)
                         <option value="{{ $route->id }}">
-                            {{ $route->from . ' - ' . $route->dest }}
+                            {{ getTownName($route->from) . ' - ' . getTownName($route->dest) }}
                         </option>
                     @endforeach
                 </select>

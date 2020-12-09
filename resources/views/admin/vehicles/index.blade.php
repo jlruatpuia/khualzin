@@ -40,7 +40,7 @@
                           {{ ucwords($value) }},
                         @endforeach
                       </td>
-                      <td>{{ $vehicle->route->from . ' - ' . $vehicle->route->dest }}</td>
+                      <td>{{ getTownName($vehicle->route->from) . ' - ' . getTownName($vehicle->route->dest) }}</td>
                       <td>{{ $vehicle->driver->name }}</td>
                       <td>
                           <a href="{{ route('vehicles.edit', $vehicle->id) }}" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>

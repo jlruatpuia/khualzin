@@ -77,7 +77,9 @@ class VehiclesController extends Controller
 
         $vehicle->save();
 
-        return redirect()->route('vehicles.index');
+        return redirect()
+            ->route('vehicles.index')
+            ->withSuccessMessage('Vehicle added successfully!');
     }
 
     /**
@@ -152,7 +154,9 @@ class VehiclesController extends Controller
 
       $vehicle->save();
 
-      return redirect()->route('vehicles.index');
+      return redirect()
+          ->route('vehicles.index')
+          ->withSuccessMessage('Vehicle updated successfully!');
     }
 
     /**
@@ -166,6 +170,8 @@ class VehiclesController extends Controller
         $vehicle = Vehicle::find($id);
         $vehicle->delete();
 
-        return redirect()->route('vehicles.index');
+        return redirect()
+            ->route('vehicles.index')
+            ->withSuccessMessage('Vehicle deleted successfully!');
     }
 }

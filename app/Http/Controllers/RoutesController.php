@@ -136,6 +136,8 @@ class RoutesController extends Controller
     {
         $route = Route::find($id);
         $route->delete();
-        return redirect()->route('routes.index');
+        return redirect()
+            ->route('routes.index')
+            ->withSuccessMessage('Route deleted successfully!');
     }
 }
