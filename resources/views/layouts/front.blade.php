@@ -49,8 +49,21 @@
                                             <a class="nav-link text-white add-button" href="{{ route('register') }}">Register</a>
                                         </li>
                                     @else
-                                        <li class="nav-item">
-                                            <a class="nav-link login-button" href="{{ url('/home') }}">Manage</a>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                               role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                                <li><a class="dropdown-item" href="#">Travel History</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                    </form>
+                                                </li>
+                                            </ul>
                                         </li>
                                     @endguest
                                 </ul>
@@ -92,10 +105,8 @@
             </div>
         </footer>
     <!-- JAVASCRIPTS -->
-    <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/popper.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap-slider.js') }}"></script>
+    <script src="{{ asset('js/core.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-5.bundle.min.js') }}"></script>
     <!-- tether js -->
     <script src="{{ asset('plugins/tether/js/tether.min.js') }}"></script>
     <script src="{{ asset('plugins/raty/jquery.raty-fa.js') }}"></script>
